@@ -1,18 +1,5 @@
 #!/bin/bash
 
-# Start SSH process:
-cp /opt/software/Blueocean/Configs/ssh/id_rsa /root/.ssh/
-cp /opt/software/Blueocean/Configs/ssh/authorized_keys /root/.ssh/
-chmod 700 /root/.ssh
-chmod 600 /root/.ssh/id_rsa
-chmod 600 /root/.ssh/authorized_keys
-/usr/sbin/sshd -D &
-status=$?
-if [ $status -ne 0 ]; then
-  echo "Failed to start SSH sshd process: $status"
-  exit $status
-fi
-
 # Start PBIS process
 (/opt/pbis/sbin/lwsmd --syslog& echo $! > /run/lwsmd.pid)
 status=$?
