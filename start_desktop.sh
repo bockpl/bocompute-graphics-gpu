@@ -1,18 +1,4 @@
 #!/bin/bash
-#mfsmount -S /blueocean/opt /opt && \
-#mfsmount -S /blueocean/home /home && \
-#mount -o bind /usr/local/pbis /opt/pbis && \
-#/opt/pbis/sbin/lwsmd --syslog& echo $! > /run/lwsmd.pid) && \
-#source /etc/profile.d/sge.sh; /etc/init.d/sgeexecd.blueocean-v15 start
-#/opt/pbis/sbin/lwsmd --syslog
-#sleep infinity
-
-mount -o bind /usr/local/pbis /opt/pbis
-status=$?
-if [ $status -ne 0 ]; then
-  echo "Faile in mount sequence: $status"
-  exit $status
-fi
 
 # Start SSH process:
 cp /opt/software/Blueocean/Configs/ssh/id_rsa /root/.ssh/
@@ -23,7 +9,7 @@ chmod 600 /root/.ssh/authorized_keys
 /usr/sbin/sshd -D &
 status=$?
 if [ $status -ne 0 ]; then
-  echo "Failed to start PBIS lwsmd process: $status"
+  echo "Failed to start SSH sshd process: $status"
   exit $status
 fi
 
