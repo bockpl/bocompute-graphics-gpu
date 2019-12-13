@@ -6,6 +6,9 @@
 
 #FROM opengl/1.1-glvnd-runtime-centos7
 FROM nvidia/opengl:1.1-glvnd-runtime-centos7
+LABEL maintainer="seweryn.sitarski@p.lodz.pl"
+
+EXPOSE 6445/tcp
 
 ARG SRVDIR=/srv
 ARG SOURCEFORGE=https://sourceforge.net/projects
@@ -14,6 +17,22 @@ ARG VIRTUALGL_VERSION=2.6.2
 ARG LIBJPEG_VERSION=2.0.2
 ARG WEBSOCKIFY_VERSION=0.8.0
 ARG NOVNC_VERSION=1.1.0
+
+
+RUN \
+# Tymczasowa instalacja git-a i ansible w celu uruchomienia playbook-ow
+yum -y install yum-plugin-remove-with-leaves && \
+yum -y install ansible && \
+# Poprawka maksymalnej grupy systemowe konieczna ze wzgledu na wymagane GID grupy sgeadmin systemu SOGE, zaszlosc historyczna
+sed -ie 's/SYS_GID_MAX               999/SYS_GID_MAX               997/g' /etc/login.defs && yum -y install git && \
+# Pobranie repozytorium z playbook-ami
+cd /; git clone https://github.com/bockpl/boplaybooks.git; cd /boplaybooks && \
+# Instalacja systemu autoryzacji AD PBIS
+ansible-playbook Playbooks/install_PBIS.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
+# Skasowanie tymczasowego srodowiska git i ansible
+yum -y remove git --remove-leaves && \
+yum -y remove ansible --remove-leaves && \
+cd /; rm -rf /boplaybooks
 
 # Szukanie zalznosci w yum
 # yum whatprovides '*/libICE.so.6*'
