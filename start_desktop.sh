@@ -1,23 +1,14 @@
 #!/bin/bash
 
-# Start PBIS process
-(/opt/pbis/sbin/lwsmd --syslog& echo $! > /run/lwsmd.pid)
-status=$?
-if [ $status -ne 0 ]; then
-  echo "Failed to start PBIS lwsmd process: $status"
-  exit $status
-fi
+# Jednokrotna aktualizacja liku hosts przy starcie, pozniej wywolywane systematycznie przez monit-a
+/etc/monit.d/start_sync_hosts.sh
 
-# Podlaczenie do domeny:
-sleep 5; domainjoin-cli join --disable ssh adm.p.lodz.pl blueocean $(cat /opt/software/Blueocean/Configs/bo_password)
-
-# Start SOGE process
-sleep 5; source /etc/profile.d/sge.sh; /etc/init.d/sgeexecd.blueocean-v15 start
-status=$?
-if [ $status -ne 0 ]; then
-  echo "Failed to start SOGE sge_execd process: $status"
-  exit $status
+#MONIT_OPT=-I
+MONIT_OPT=""
+if ! [[ -z "$DEBUG" ]]; then
+  MONIT_OPT="$MONIT_OPT -vvv"
 fi
+monit $MONIT_OPT
 
 # Start XVnc and xfce4
 chmod -f 777 /tmp/.X11-unix
