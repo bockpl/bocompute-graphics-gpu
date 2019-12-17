@@ -143,10 +143,8 @@ EXPOSE 40001
 ENV DISPLAY :1
 
 RUN mkdir -p /root/.vnc
-COPY ./xstartup.turbovnc /root/.vnc/xstartup.turbovnc
-RUN chmod a+x /root/.vnc/xstartup.turbovnc
 
-COPY self.pem /root/self.pem
+COPY self.pem /tmp/self.pem
 COPY start_desktop.sh /usr/local/bin/start_desktop.sh
 
 CMD /usr/local/bin/start_desktop.sh
