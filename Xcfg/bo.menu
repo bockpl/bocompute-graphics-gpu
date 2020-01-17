@@ -1,0 +1,14 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+  "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+
+<Menu>
+    <Name>Blueocean</Name>
+	<!-- Matlab -->
+	<Menu>
+		<Name>Matlab</Name>
+    		<Directory>Matlab.directory</Directory>
+    		<Include>
+      			<Category>Matlab</Category>
+    		</Include>
+	</Menu> <!-- End Matlab -->
+</Menu>
