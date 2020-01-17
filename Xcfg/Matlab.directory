@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Matlab
+Comment=Scientific computing environment
+Icon=/opt/matlab_r2016a/bin/glnxa64/cef_resources/matlab_icon.png
+Type=Directory
+Encoding=UTF-8

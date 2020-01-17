@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/opt/matlab_r2016a/bin/matlab -desktop
+Name=Matlab_r2016a
+Icon=/opt/matlab_r2016a/bin/glnxa64/cef_resources/matlab_icon.png
+Categories=Matlab;
+Comment=Scientific computing environment
+StartupNotify=true
+StartupWMClass=com-mathworks-util-PostVMInit
