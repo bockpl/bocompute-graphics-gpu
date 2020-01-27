@@ -33,6 +33,8 @@ yum -y install ansible && \
 sed -ie 's/SYS_GID_MAX               999/SYS_GID_MAX               997/g' /etc/login.defs && yum -y install git && \
 # Pobranie repozytorium z playbook-ami
 cd /; git clone https://github.com/bockpl/boplaybooks.git; cd /boplaybooks && \
+# Skasowanie tymczasowego srodowiska git
+yum -y remove git --remove-leaves && \
 # Instalacja systemu autoryzacji AD PBIS
 ansible-playbook Playbooks/install_PBIS.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
 # Instalacja wymagan dla systemu kolejkowego SOGE
@@ -56,7 +58,6 @@ ansible-playbook Playbooks/install_dep_MatLab.yml --connection=local --extra-var
 # Instalacja narzedzi do interaktywnej wpracy w konsoli dla uzytkownikow klastra
 ansible-playbook Playbooks/install_boaccess_tools.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
 # Skasowanie tymczasowego srodowiska git i ansible
-yum -y remove git --remove-leaves && \
 yum -y remove ansible --remove-leaves && \
 cd /; rm -rf /boplaybooks
 
@@ -75,11 +76,6 @@ RUN chmod 700 /etc/monitrc
 
 # Szukanie zalznosci w yum
 # yum whatprovides '*/libICE.so.6*'
-
-# Instalacja dodatku yum pozwalajacego usuwac pakiet z zaleznosciami
-RUN yum -y install yum-plugin-remove-with-leaves && \
-yum clean all && \
-rm -rf /var/cache/yum
 
 # Instalacja/kompilacja noVNC
 RUN yum install -y \
@@ -111,6 +107,7 @@ RUN yum install -y \
 # W celu poprawnego uruchomienia min xfdesktop dodano link i biblioteke libpng12
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     yum groups install -y Xfce && \
+    yum remove -y xfce4-power-manager %% \
     rm -rf /etc/xdg/autostart/xfce-polkit.desktop && \
     ln -s /usr/lib64/libbz2.so.1.0.6 /usr/lib64/libbz2.so.1.0 && \
     yum install -y libpng12
