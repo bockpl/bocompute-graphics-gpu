@@ -7,17 +7,6 @@
 FROM nvidia/opengl:1.1-glvnd-runtime-centos7
 LABEL maintainer="seweryn.sitarski@p.lodz.pl"
 
-ARG SRVDIR=/srv
-ARG SOURCEFORGE=https://sourceforge.net/projects
-ARG TURBOVNC_VERSION=2.2.2
-ARG VIRTUALGL_VERSION=2.6.2
-ARG LIBJPEG_VERSION=2.0.2
-ARG WEBSOCKIFY_VERSION=0.8.0
-ARG NOVNC_VERSION=1.1.0
-
-# Zmiana konfiguracji yum-a, dolaczanie stron MAN
-RUN sed -i 's/tsflags=nodocs/# &/' /etc/yum.conf
-
 # SGE
 ADD soge/sgeexecd.blueocean-v15 /etc/init.d/
 ADD soge/sge.sh /etc/profile.d/
@@ -73,6 +62,18 @@ ADD monit/start_sync_hosts.sh /etc/monit.d/
 
 # Zmiana uprawnien konfiguracji monit-a
 RUN chmod 700 /etc/monitrc
+
+
+ARG SRVDIR=/srv
+ARG SOURCEFORGE=https://sourceforge.net/projects
+ARG TURBOVNC_VERSION=2.2.2
+ARG VIRTUALGL_VERSION=2.6.2
+ARG LIBJPEG_VERSION=2.0.2
+ARG WEBSOCKIFY_VERSION=0.8.0
+ARG NOVNC_VERSION=1.1.0
+
+# Zmiana konfiguracji yum-a, dolaczanie stron MAN
+RUN sed -i 's/tsflags=nodocs/# &/' /etc/yum.conf
 
 # Szukanie zalznosci w yum
 # yum whatprovides '*/libICE.so.6*'
@@ -164,7 +165,5 @@ RUN mkdir -p /root/.vnc
 
 COPY self.pem /tmp/self.pem
 COPY start_desktop.sh /usr/local/bin/start_desktop.sh
-
-ENV TIME_ZONE Europe/Warsaw
 
 CMD /usr/local/bin/start_desktop.sh
