@@ -2,7 +2,13 @@
   <head>
     <title>Workspace Desktop Redirect</title>
     <script language="javascript" type="text/javascript">
-     var url = '//' + document.location.hostname + ':' + document.location.port + '/vnc.html?resize=remote&reconnect=1&autoconnect=1';
+     var pathArray = window.location.pathname.split('/');
+     var vncPath = "";
+     for (i = 1; i < pathArray.length-1; i++) {
+       vncPath += pathArray[i];
+       vncPath += "/";
+     }
+     var url = '//' + window.location.hostname + ':' + window.location.port + '/' + vncPath + 'vnc.html?path=' + vncPath + '&resize=remote&autoconnect=1';
      window.location.assign(url);
     </script>
   </head>
