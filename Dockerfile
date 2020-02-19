@@ -1,4 +1,4 @@
-FROM bockpl/bocompute:v1.9.0
+FROM bockpl/bocompute:v1.9.2
 LABEL maintainer="seweryn.sitarski@p.lodz.pl"
 
 
