@@ -11,4 +11,71 @@
       			<Category>Matlab</Category>
     		</Include>
 	</Menu> <!-- End Matlab -->
+	<!-- Ansys -->
+	<Menu>
+		<Name>Ansys</Name>
+    		<Directory>Ansys.directory</Directory>
+    		<Include>
+      			<Category>Ansys</Category>
+    		</Include>
+		<Menu>
+                	<Name>Ansys-2019</Name>
+                	<Directory>Ansys-2019.directory</Directory>
+                	<Include>
+                        	<Category>Ansys-2019</Category>
+                	</Include>
+			<Menu>
+              			<Name>CFX</Name>
+                		<Directory>Ansys2019-CFX.directory</Directory>
+				<Include>
+                        		<Category>CFX2019</Category>
+                		</Include>
+			</Menu> <!-- End CFX -->
+			<Menu>
+                                <Name>Fluent</Name>
+                                <Directory>Ansys2019-Fluent.directory</Directory>
+                                <Include>
+                                        <Category>Fluent2019</Category>
+                                </Include>
+                        </Menu> <!-- End Fluent -->
+		</Menu> <!-- End Ansys-2019 -->
+		<Menu>
+                        <Name>Ansys-2017</Name>
+                        <Directory>Ansys-2017.directory</Directory>
+                        <Include>
+                                <Category>Ansys-2017</Category>
+                        </Include>
+                        <Menu>
+                                <Name>CFX</Name>
+                                <Directory>Ansys2017-CFX.directory</Directory>
+                                <Include>
+                                        <Category>CFX2017</Category>
+                                </Include>
+                        </Menu> <!-- End CFX -->
+                        <Menu>
+                                <Name>Fluent</Name>
+                                <Directory>Ansys2017-Fluent.directory</Directory>
+                                <Include>
+                                        <Category>Fluent2017</Category>
+                                </Include>
+                        </Menu> <!-- End Fluent -->
+                </Menu> <!-- End Ansys-2017 -->
+	</Menu> <!-- End Ansys -->
+	<!-- Eclipse -->
+	<Menu>
+		<Name>Eclipse</Name>
+    		<Directory>Eclipse.directory</Directory>
+    		<Include>
+      			<Category>Eclipse</Category>
+    		</Include>
+	</Menu> <!-- End Eclipse -->
+	<!-- VMD -->
+	<Menu>
+		<Name>VMD</Name>
+    		<Directory>VMD.directory</Directory>
+    		<Include>
+      			<Category>VMD</Category>
+    		</Include>
+	</Menu> <!-- End VMD -->
+
 </Menu>

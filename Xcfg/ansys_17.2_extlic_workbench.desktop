@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=bash -c "module load ansys_17.2_extlic; runwb2"
+Name=Ansys_17.2_workbench
+Icon=/opt/ansys_19_2/v194/ansys/gui/en-us/images/ansyswb_32x32.png
+Categories=Ansys-2017;
+Comment=Scientific computing environment
+StartupNotify=true
+StartupWMClass=com-mathworks-util-PostVMInit
