@@ -118,7 +118,6 @@ ARG FF_CFG_FILE=/usr/lib64/firefox/defaults/preferences/all-redhat.js
 RUN sed -i -E 's/(pref\("startup\.homepage_override_url",.*").*("\);)/'"${HOME_PAGE}"'/g' ${FF_CFG_FILE} && \
     sed -i -E 's/(pref\("startup\.homepage_welcome_url",.*").*("\);)/'"${HOME_PAGE}"'/g' ${FF_CFG_FILE} && \
     sed -i -E 's/(pref\("browser\.startup\.homepage",.*"data:text\/plain,browser\.startup\.homepage=).*("\);)/'"${HOME_PAGE}"'/g' ${FF_CFG_FILE}
-    
 
 ADD self.pem /tmp/self.pem
 ADD start_desktop.sh /usr/local/bin/start_desktop.sh
