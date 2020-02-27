@@ -112,6 +112,8 @@ ADD Xcfg/*.directory /usr/share/desktop-directories/
 
 
 RUN mkdir -p /root/.vnc
+# Ustawienie strony domowej w przegladarce na uci.p.lodz.pl
+RUN sed -i -E 's/(pref\("browser\.startup\.homepage",.*"data:text\/plain,browser\.startup\.homepage=).*("\);)/\1https:\/\/uci\.p\.lodz\.pl\/uslugi\/klaster-obliczeniowy\2/g' /usr/lib64/firefox/defaults/preferences/all-redhat.js
 
 ADD self.pem /tmp/self.pem
 ADD start_desktop.sh /usr/local/bin/start_desktop.sh
