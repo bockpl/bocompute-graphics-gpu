@@ -1,17 +1,17 @@
-FROM nvidia/opengl:1.1-glvnd-runtime-centos7 as glvnd
+#FROM nvidia/opengl:1.1-glvnd-runtime-centos7 as glvnd
 FROM bockpl/bocompute:v1.9.3
 LABEL maintainer="seweryn.sitarski@p.lodz.pl"
 
-COPY --from=glvnd /usr/local/lib64 /usr/local/lib64
-COPY --from=glvnd /usr/local/lib /usr/local/lib
+#COPY --from=glvnd /usr/local/lib64 /usr/local/lib64
+#COPY --from=glvnd /usr/local/lib /usr/local/lib
 
-COPY --from=glvnd /usr/local/share/glvnd/egl_vendor.d/10_nvidia.json /usr/local/share/glvnd/egl_vendor.d/10_nvidia.json
+#COPY --from=glvnd /usr/local/share/glvnd/egl_vendor.d/10_nvidia.json /usr/local/share/glvnd/egl_vendor.d/10_nvidia.json
 
-RUN echo '/usr/local/lib64' >> /etc/ld.so.conf.d/glvnd.conf && \
-    echo '/usr/local/lib' >> /etc/ld.so.conf.d/glvnd.conf && \
-    ldconfig && \
-    echo '/usr/local/$LIB/libGL.so.1' >> /etc/ld.so.preload && \
-    echo '/usr/local/$LIB/libEGL.so.1' >> /etc/ld.so.preload
+#RUN echo '/usr/local/lib64' >> /etc/ld.so.conf.d/glvnd.conf && \
+#    echo '/usr/local/lib' >> /etc/ld.so.conf.d/glvnd.conf && \
+#    ldconfig && \
+#    echo '/usr/local/$LIB/libGL.so.1' >> /etc/ld.so.preload && \
+#    echo '/usr/local/$LIB/libEGL.so.1' >> /etc/ld.so.preload
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES all
