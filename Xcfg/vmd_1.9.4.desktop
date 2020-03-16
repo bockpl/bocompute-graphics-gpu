@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=xfce4-terminal -e "/bin/bash -ic 'module load vmd_1.9.4a38; vmd'"
+Name=VMD_1.9.4
+Icon=/opt/vmd/vmd-logo.svg
+Categories=VMD;
+Comment=Scientific computing environment
+StartupNotify=true
