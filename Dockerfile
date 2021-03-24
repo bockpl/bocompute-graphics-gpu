@@ -1,5 +1,5 @@
-FROM bockpl/bocompute:v1.9.5
-LABEL maintainer="seweryn.sitarski@p.lodz.pl"
+FROM bockpl/bocompute:v1.9.7
+LABEL maintainer="pawel.adamczyk.1@p.lodz.pl"
 
 
 
