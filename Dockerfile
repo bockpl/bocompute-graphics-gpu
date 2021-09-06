@@ -1,5 +1,5 @@
-FROM bockpl/bocompute:v2.0.0
-LABEL maintainer="pawel.adamczy.1@p.lodz.pl"
+FROM bockpl/bocomputes:v2.0.1
+LABEL maintainer="pawel.adamczyk.1@p.lodz.pl"
 
 ARG SRVDIR=/srv
 ARG SOURCEFORGE=https://sourceforge.net/projects
