@@ -1,7 +1,5 @@
-FROM bockpl/bocompute:v1.9.7
-LABEL maintainer="pawel.adamczyk.1@p.lodz.pl"
-
-
+FROM bockpl/bocompute:v2.0.0
+LABEL maintainer="pawel.adamczy.1@p.lodz.pl"
 
 ARG SRVDIR=/srv
 ARG SOURCEFORGE=https://sourceforge.net/projects
@@ -35,10 +33,6 @@ RUN cd /tmp && \
  #   ln -s ${SRVDIR}/websockify && \
  #  rm -f v${WEBSOCKIFY_VERSION}.tar.gz && \
     rm -f v${NOVNC_VERSION}.tar.gz && \
-    yum remove -y --remove-leaves \
-        wget \
-        make \
-        gcc && \
     yum clean all && \
     rm -rf /var/cache/yum
 
@@ -84,7 +78,6 @@ RUN cd /tmp && \
     rpm -i *.rpm && \
     mv /opt/* ${SRVDIR}/ && \
     cp ${SRVDIR}/TurboVNC/bin/vncserver ${SRVDIR}/TurboVNC/bin/vncserver.org && \
-    yum remove -y --remove-leaves wget && \
     rm -f /tmp/*.rpm && \
     yum clean all && \
     rm -rf /var/cache/yum
