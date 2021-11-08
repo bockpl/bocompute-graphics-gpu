@@ -64,7 +64,9 @@ RUN  yum install -y \
         libglvnd-glx-1.0.1-0.8.git5baa1e5.el7.x86_64 \
         mesa-libGLU-9.0.0-4.el7.x86_64 \
         libXv-1.0.11-1.el7.x86_64 \
-        libXtst-1.2.3-1.el7.x86_64 && \
+        libXtst-1.2.3-1.el7.x86_64 \
+        docker \
+        singularity && \
      yum clean all && \
      rm -rf /var/cache/yum
 
@@ -72,9 +74,9 @@ RUN  yum install -y \
 RUN cd /tmp && \
     yum install -y perl && \
     yum install -y wget && \
-    wget ${SOURCEFORGE}/turbovnc/files/${TURBOVNC_VERSION}/turbovnc-${TURBOVNC_VERSION}.x86_64.rpm && \
-    wget ${SOURCEFORGE}/libjpeg-turbo/files/${LIBJPEG_VERSION}/libjpeg-turbo-official-${LIBJPEG_VERSION}.x86_64.rpm && \
-    wget ${SOURCEFORGE}/virtualgl/files/${VIRTUALGL_VERSION}/VirtualGL-${VIRTUALGL_VERSION}.x86_64.rpm && \
+    wget --no-check-certificate ${SOURCEFORGE}/turbovnc/files/${TURBOVNC_VERSION}/turbovnc-${TURBOVNC_VERSION}.x86_64.rpm && \
+    wget --no-check-certificate ${SOURCEFORGE}/libjpeg-turbo/files/${LIBJPEG_VERSION}/libjpeg-turbo-official-${LIBJPEG_VERSION}.x86_64.rpm && \
+    wget --no-check-certificate ${SOURCEFORGE}/virtualgl/files/${VIRTUALGL_VERSION}/VirtualGL-${VIRTUALGL_VERSION}.x86_64.rpm && \
     rpm -i *.rpm && \
     mv /opt/* ${SRVDIR}/ && \
     cp ${SRVDIR}/TurboVNC/bin/vncserver ${SRVDIR}/TurboVNC/bin/vncserver.org && \
