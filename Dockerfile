@@ -66,9 +66,14 @@ RUN  yum install -y \
         libXv-1.0.11-1.el7.x86_64 \
         libXtst-1.2.3-1.el7.x86_64 \
         docker \
-        singularity && \
+        singularity \
+        git && \
      yum clean all && \
      rm -rf /var/cache/yum
+
+# INstalacja elementow alphafold2
+RUN pip3 install absl-py==0.13.0
+RUN pip3 install docker==5.0.0
 
 # Instalacja i wtepna konfiguracja TurboVNC i VirtualGL
 RUN cd /tmp && \
