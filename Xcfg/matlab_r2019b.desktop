@@ -2,9 +2,9 @@
 Version=1.0
 Type=Application
 Terminal=false
-Exec=bash -c "module load matlab_R2016a; matlab -desktop"
-Name=Matlab_r2016a
-Icon=/opt/matlab_r2016a/bin/glnxa64/cef_resources/matlab_icon.png
+Exec=bash -c "module load matlab_R2019b; matlab -desktop"
+Name=Matlab_r2019b
+Icon=/opt/matlab_r2019b/bin/glnxa64/cef_resources/matlab_icon.png
 Categories=Matlab;
 Comment=Scientific computing environment
 StartupNotify=true
