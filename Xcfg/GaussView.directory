@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=GaussView
+Comment=Scientific computing environment
+Icon=/srv/blueocean/opt/gaussview5/gv/GV_icon.png
+Type=Directory
+Encoding=UTF-8

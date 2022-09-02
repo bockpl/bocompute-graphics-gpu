@@ -77,5 +77,13 @@
       			<Category>VMD</Category>
     		</Include>
 	</Menu> <!-- End VMD -->
+        <!-- GaussView -->
+        <Menu>
+                <Name>GaussView</Name>
+                <Directory>GaussView.directory</Directory>
+                <Include>
+                        <Category>GaussView</Category>
+                </Include>
+        </Menu> <!-- GaussView -->
 
 </Menu>

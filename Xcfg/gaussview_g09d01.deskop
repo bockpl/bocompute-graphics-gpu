@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=bash -c "module load gaussian9_D_01; gview"
+Name=GaussView5_G09.D01
+Icon=/srv/blueocean/opt/gaussview5/gv/GV_icon.png
+Categories=GaussView;
+Comment=Scientific computing environment
+StartupNotify=true
