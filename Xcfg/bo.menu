@@ -84,6 +84,6 @@
                 <Include>
                         <Category>GaussView</Category>
                 </Include>
-        </Menu> <!-- GaussView -->
+        </Menu> <!-- End GaussView -->
 
 </Menu>
