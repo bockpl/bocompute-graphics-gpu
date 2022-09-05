@@ -69,6 +69,14 @@
       			<Category>Eclipse</Category>
     		</Include>
 	</Menu> <!-- End Eclipse -->
+	<!-- GaussView -->
+  	<Menu>
+  		<Name>GaussView</Name>
+ 		<Directory>GaussView.directory</Directory>
+ 		<Include>
+			<Category>GaussView</Category>
+		</Include>
+	</Menu> <!-- End GaussView -->
 	<!-- VMD -->
 	<Menu>
 		<Name>VMD</Name>
@@ -77,13 +85,5 @@
       			<Category>VMD</Category>
     		</Include>
 	</Menu> <!-- End VMD -->
-        <!-- GaussView -->
-        <Menu>
-                <Name>GaussView</Name>
-                <Directory>GaussView.directory</Directory>
-                <Include>
-                        <Category>GaussView</Category>
-                </Include>
-        </Menu> <!-- End GaussView -->
 
 </Menu>
