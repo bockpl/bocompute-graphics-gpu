@@ -1,4 +1,4 @@
-FROM bockpl/bocompute:v2.1.2
+FROM bockpl/bocompute:v2.1.3
 LABEL maintainer="pawel.adamczyk.1@p.lodz.pl"
 
 ARG SRVDIR=/srv
